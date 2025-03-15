@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Watch Party Extension",
+    "version": "1.0",
+    "description": "Sync your Netflix playback with friends",
+    "permissions": ["storage", "activeTab", "scripting","tabs"],
+    "host_permissions": ["*://*.netflix.com/*"],
+    "background": {
+      "service_worker": "./background.js"
+    },
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "16": "./assets/OurIcon.png",
+        "48": "./assets/OurIcon.png",
+        "128": "./assets/OurIcon.png"
+      }
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.netflix.com/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
